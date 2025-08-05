@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>I Love You</title>
+  <link rel="stylesheet" href="css.css">
+  <style>
+    body {
+      background: radial-gradient(circle at top, #ffaad4, #ff69b4, #ff3385);
+      margin: 0;
+      overflow: hidden;
+      font-family: 'Great Vibes', cursive;
+      height: 100vh;
+      text-align: center;
+      color: white;
+      position: relative;
+    }
+
+    /* 🌈 Rainbow glowing title */
+    h1 {
+      font-size: 5rem;
+      margin-top: 1rem;
+      animation: rainbowGlow 3s infinite alternate;
+    }
+    @keyframes rainbowGlow {
+      0% { color: #ff66b2; text-shadow: 0 0 15px #ff66b2, 0 0 30px #ff3399; }
+      25% { color: #ff3399; text-shadow: 0 0 15px #ff3399, 0 0 30px #ff0066; }
+      50% { color: #ff0066; text-shadow: 0 0 15px #ff0066, 0 0 30px #cc0052; }
+      75% { color: #cc0052; text-shadow: 0 0 15px #cc0052, 0 0 30px #99003d; }
+      100% { color: #ff66b2; text-shadow: 0 0 15px #ff66b2, 0 0 30px #ff3399; }
+    }
+
+    /* Floating Hearts */
+    .heart {
+      position: absolute;
+      font-size: 2rem;
+      animation: floatUp 6s linear infinite;
+      opacity: 0.8;
+    }
+    @keyframes floatUp {
+      from { transform: translateY(100vh) scale(1) rotate(0deg); opacity: 1; }
+      to { transform: translateY(-10vh) scale(1.5) rotate(360deg); opacity: 0; }
+    }
+
+    /* Glitter stars */
+    .star {
+      position: absolute;
+      width: 3px;
+      height: 3px;
+      background: white;
+      opacity: 0.8;
+      border-radius: 50%;
+      animation: twinkle 2s infinite alternate;
+    }
+    @keyframes twinkle {
+      from { opacity: 0.2; transform: scale(1); }
+      to { opacity: 1; transform: scale(1.5); }
+    }
+
+    /* Popping messages */
+    .message {
+      position: absolute;
+      font-size: 2.2rem;
+      opacity: 0;
+      animation: fadeInOut 3s ease forwards;
+      text-shadow: 0 0 10px white;
+    }
+    @keyframes fadeInOut {
+      0% { opacity: 0; transform: scale(0.5); }
+      30% { opacity: 1; transform: scale(1.2); }
+      70% { opacity: 1; }
+      100% { opacity: 0; transform: scale(0.5); }
+    }
+
+    /* Love explosion hearts */
+    .boom-heart {
+      position: absolute;
+      font-size: 1.5rem;
+      opacity: 0;
+      animation: boom 1s ease forwards;
+    }
+    @keyframes boom {
+      0% { opacity: 1; transform: scale(0) translate(0, 0); }
+      100% { opacity: 0; transform: scale(2) translate(var(--x), var(--y)); }
+    }
+
+    /* 🎈 Floating Balloons */
+    .balloon {
+      position: absolute;
+      font-size: 3rem;
+      animation: balloonFloat 10s linear infinite;
+    }
+    @keyframes balloonFloat {
+      from { transform: translateY(100vh) rotate(0deg); opacity: 1; }
+      to { transform: translateY(-20vh) rotate(15deg); opacity: 0; }
+    }
+
+    /* 🎀 Glowing Border */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 5px solid #ff66b2;
+      box-shadow: 0 0 30px #ff3399;
+      pointer-events: none;
+      animation: borderGlow 2s infinite alternate;
+    }
+    @keyframes borderGlow {
+      from { box-shadow: 0 0 20px #ff66b2; }
+      to { box-shadow: 0 0 40px #ff3399; }
+    }
+
+    /* ❤️ Heart shape text */
+    .heart-shape {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 1.2rem;
+      color: rgba(255,255,255,0.2);
+      width: 400px;
+      text-align: center;
+      line-height: 1.4rem;
+      pointer-events: none;
+    }
+
+    /* Back button */
+    .back-btn {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 10px 20px;
+      background: #ff0066;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 1.5rem;
+      cursor: pointer;
+      box-shadow: 0 0 10px #fff;
+      transition: 0.3s;
+      z-index: 1000;
+    }
+    .back-btn:hover {
+      background: #cc0052;
+      transform: translateX(-50%) scale(1.1);
+    }
+  </style>
+</head>
+<body>
+
+  <h1>I LOVE YOU ❤️</h1>
+
+  <!-- 🎶 Optional Romantic Background Music -->
+  <audio autoplay loop>
+    <source src="romantic.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- ❤️ Heart-shaped text -->
+  <div class="heart-shape">
+    I love you I love you I love you I love you I love you<br>
+    I love you I love you I love you I love you<br>
+    I love you I love you I love you<br>
+    I love you I love you<br>
+    I love you
+  </div>
+
+  <button class="back-btn" onclick="window.location.href='bday.htm'">⬅ Back</button>
+
+  <script>
+    // ❤️ Floating hearts
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.classList.add("heart");
+      heart.innerHTML = ["❤️","💖","💘","💞","💕","💗","💓","💜"][Math.floor(Math.random() * 8)];
+      
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.fontSize = Math.random() * 30 + 20 + "px";
+      heart.style.animationDuration = Math.random() * 3 + 3 + "s";
+
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 6000);
+    }
+    setInterval(createHeart, 250);
+
+    // 🌟 Twinkling stars
+    function createStar() {
+      const star = document.createElement("div");
+      star.classList.add("star");
+      star.style.left = Math.random() * 100 + "vw";
+      star.style.top = Math.random() * 100 + "vh";
+      star.style.animationDuration = Math.random() * 2 + 1 + "s";
+      document.body.appendChild(star);
+      setTimeout(() => star.remove(), 3000);
+    }
+    setInterval(createStar, 200);
+
+    // 💌 Random messages
+    const messages = ["I love you", "Forever ❤️", "You’re my world 🌎", "My everything 💕", "Always yours 💘", "Forever & Always 💞"];
+    function createMessage() {
+      const msg = document.createElement("div");
+      msg.classList.add("message");
+      msg.innerText = messages[Math.floor(Math.random() * messages.length)];
+      msg.style.left = Math.random() * 80 + "vw";
+      msg.style.top = Math.random() * 80 + "vh";
+      msg.style.color = ["#fff", "#ffccff", "#ffe6f7"][Math.floor(Math.random() * 3)];
+      document.body.appendChild(msg);
+      setTimeout(() => msg.remove(), 3000);
+    }
+    setInterval(createMessage, 1500);
+
+    // 💥 Love explosion on click
+    document.addEventListener("click", (e) => {
+      for (let i = 0; i < 10; i++) {
+        const boom = document.createElement("div");
+        boom.classList.add("boom-heart");
+        boom.innerHTML = "💖";
+        const angle = Math.random() * 2 * Math.PI;
+        const distance = Math.random() * 100 + 50;
+        const x = Math.cos(angle) * distance + "px";
+        const y = Math.sin(angle) * distance + "px";
+        boom.style.setProperty("--x", x);
+        boom.style.setProperty("--y", y);
+        boom.style.left = e.clientX + "px";
+        boom.style.top = e.clientY + "px";
+        document.body.appendChild(boom);
+        setTimeout(() => boom.remove(), 1000);
+      }
+    });
+
+    // 🎈 Floating balloons
+    function createBalloon() {
+      const balloon = document.createElement("div");
+      balloon.classList.add("balloon");
+      balloon.innerHTML = "🎈 I ❤️ YOU 🎈";
+      balloon.style.left = Math.random() * 80 + "vw";
+      balloon.style.animationDuration = Math.random() * 5 + 8 + "s";
+      document.body.appendChild(balloon);
+      setTimeout(() => balloon.remove(), 10000);
+    }
+    setInterval(createBalloon, 4000);
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,148 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background:url('Rrose.png'),linear-gradient(to bottom, #2c003e, #3c1e63, #5a2c7a, #7a3ea0);
+    background-size: 50%;
+    color: #fff;
+    overflow-x: hidden;
+    position: relative;
+    cursor: url('https://cur.cursors-4u.net/cursors/cur-9/cur853.cur'), auto;
+  }
+  .parallax {
+  position: absolute;
+  will-change: transform;
+}
+
+  .container {
+    text-align: center;
+    padding: 2rem;
+    position: relative;
+    z-index: 2;
+  }
+  h1.love-message {
+    font-family: 'Great Vibes', cursive;
+    font-size: 4rem;
+    color: #8800ff;
+    text-shadow: 0 0 15px #ff009d99;
+  }
+  .choice-box {
+    margin-top: 3rem;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+  }
+  .btn {
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    background: #5a4fcf;
+    color: white;
+    transition: background 0.3s, transform 0.3s;
+    position: relative;
+    z-index: 1;
+  }
+  .btn:hover {
+    background: #7a6dff;
+    transform: scale(1.05);
+  }
+  .emoji-container {
+    font-size: 2rem;
+    display: none;
+    margin-top: 2rem;
+  }
+  #main-content {
+    display: none;
+  }
+  .bg-message {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:linear-gradient(45deg, rgba(255,255,255,0.05), rgba(255,255,255,0.05) 20px, transparent 20px, transparent 40px);
+    pointer-events: none;
+    font-family: 'Great Vibes', cursive;
+    font-size: 4rem;
+    color: #ffffff22;
+    text-align: center;
+    line-height: 6rem;
+    z-index: 0;
+    user-select: none;
+  }
+  .roses {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('Lovey.jpg');
+    background-repeat: repeat;
+    background-size: 150px;
+    opacity: 0.1;
+    pointer-events: none;
+    z-index: 0;
+  }
+  /* 🌹 Style for each falling rose */
+.rose {
+  position: fixed;
+  top: -50px;
+  width: 40px;
+  height: 40px;
+  background-image: url('Rrose.png'); /* 🖼 Replace with your rose image */
+  background-size: cover;
+  pointer-events: none;
+  animation: fall 5s linear forwards;
+}
+
+/* 🌹 Keyframe animation for falling roses */
+@keyframes fall {
+  0% { transform: translateY(-50px) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+}
+
+  .hsr-logo {
+    position: absolute;
+    top: 0;
+    right: 0%;
+    height: 120px;
+    opacity: 0.8;
+  }
+  .surprise-box {
+    margin-top: 2rem;
+  }
+  .surprise-box img {
+    max-width: 150px;
+    margin: 1rem;
+  }
+  .quote, .paragraph-message {
+    font-size: 2.5rem;
+    font-style: italic;
+    color: #f7374f;
+    margin-top: 2.5rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 2;
+    font-family: 'Great Vibes', cursive;
+    text-shadow: 0 0 10px rgb(243, 243, 191);
+  }
+  .castorice {
+    font-size: 2rem;
+    margin-top: 2rem;
+  }
+  .audio-warning {
+    color: #ffcccb;
+    font-size: 0.9rem;
+    margin-top: 1rem;
+    display: none;
+  }
+/* ✨ Scroll Fade-In Effect for text */
+.scroll-fade {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}

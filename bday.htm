@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday Jenifer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css.css">
+
+  <style>
+    /* 🌈 Glowing rainbow title */
+    h1.love-message {
+      font-size: 5rem;
+      animation: rainbowGlow 3s infinite alternate;
+    }
+    @keyframes rainbowGlow {
+      0% { color: #ff66b2; text-shadow: 0 0 15px #ff66b2, 0 0 30px #ff3399; }
+      25% { color: #ff3399; text-shadow: 0 0 15px #ff3399, 0 0 30px #ff0066; }
+      50% { color: #ff0066; text-shadow: 0 0 15px #ff0066, 0 0 30px #cc0052; }
+      75% { color: #cc0052; text-shadow: 0 0 15px #cc0052, 0 0 30px #99003d; }
+      100% { color: #ff66b2; text-shadow: 0 0 15px #ff66b2, 0 0 30px #ff3399; }
+    }
+
+    /* ✨ Stars (twinkle) */
+    .star {
+      position: absolute;
+      width: 3px;
+      height: 3px;
+      background: white;
+      opacity: 0.8;
+      border-radius: 50%;
+      animation: twinkle 2s infinite alternate;
+      pointer-events: none;
+    }
+    @keyframes twinkle {
+      from { opacity: 0.2; transform: scale(1); }
+      to { opacity: 1; transform: scale(1.5); }
+    }
+
+    /* 🎈 Floating balloons */
+    .balloon {
+      position: absolute;
+      font-size: 2.5rem;
+      animation: balloonFloat 10s linear infinite;
+      opacity: 0.9;
+    }
+    @keyframes balloonFloat {
+      from { transform: translateY(100vh) rotate(0deg); opacity: 1; }
+      to { transform: translateY(-20vh) rotate(10deg); opacity: 0; }
+    }
+
+    /* 💥 Click explosion hearts */
+    .boom-heart {
+      position: absolute;
+      font-size: 1.5rem;
+      opacity: 0;
+      animation: boom 1s ease forwards;
+      pointer-events: none;
+    }
+    @keyframes boom {
+      0% { opacity: 1; transform: scale(0) translate(0, 0); }
+      100% { opacity: 0; transform: scale(2) translate(var(--x), var(--y)); }
+    }
+
+    /* 🎶 Music player button */
+    #music-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      font-size: 2rem;
+      cursor: pointer;
+      background: #ff0066;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 50%;
+      box-shadow: 0 0 10px #fff;
+      z-index: 1000;
+      transition: transform 0.2s;
+    }
+    #music-btn:hover {
+      transform: scale(1.1);
+    }
+
+    /* 🌟 Button pulse effect */
+    .btn {
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0% { box-shadow: 0 0 5px rgba(255, 255, 255, 0.3); }
+      50% { box-shadow: 0 0 15px rgba(255, 105, 180, 0.8); }
+      100% { box-shadow: 0 0 5px rgba(255, 255, 255, 0.3); }
+    }
+  </style>
+</head>
+<body>
+  <img src="logo.jpg" class="hsr-logo" alt="HSR Logo" />
+  <div class="roses"></div>
+
+  <!-- INTRO SECTION -->
+  <div class="container" id="intro">
+    <img src="l3.jpg" alt="Sunday from Honkai Star Rail" width="300" style="margin-top: 2rem;" />
+    <h2 id="voiceText">Do you love Shrey?</h2>
+    <div class="choice-box" id="choiceBox">
+      <button class="btn" id="yesBtn" onclick="showMain()">Yes</button>
+      <button class="btn no-btn" id="noBtn" onclick="swapButtonsAndShowAngry()">No</button>
+    </div>
+    <div class="emoji-container" id="emojiContainer" style="display: none;">😠😡🤬😤👿😾</div>
+  </div>
+
+  <!-- MAIN BIRTHDAY CONTENT -->
+  <div id="main-content" style="display: none;">
+    <div style="margin-top: 2rem;">
+      <a href="./love.htm">
+        <button class="btn">Go to Love Page ❤️</button>
+      </a>
+    </div>
+
+    <div class="bg-message">I love you<br>Happy Birthday<br>I love you<br>Happy Birthday</div>
+    <div class="container">
+      <h1 class="love-message">I love you</h1>
+      <h2 style="color: rgb(55, 78, 210);">Happy Birthday, Jenifer 💖</h2>
+      <p class="quote">“In the galaxy of my heart, you're the brightest star.”</p>
+
+      <div class="surprise-box">
+        <img src="Would_you.jpg" alt="Sparkle Sticker" />
+        <img src="cerlove.jpg" alt="Silver Wolf Sticker" width="650" style="margin-top: 2rem;"/>
+        <img src="ml.jpg" alt="Dan Heng Sticker" />
+      </div>
+
+      <p class="quote">You're not just my love, you're my adventure through space and time 🌌</p>
+
+      <p class="paragraph-message">
+        My dearest Jenifer, every heartbeat of mine whispers your name. Your smile brightens even my darkest days,
+        and your laugh is the soundtrack of my happiness. You are the galaxy to my Honkai journey — radiant, mysterious, and forever captivating.
+        No matter how vast the stars are, I know I’d choose you in every universe.
+        Happy birthday, my forever girl.
+      </p>
+
+      <div class="castorice">💫💗🌸🌠💞✨</div>
+    </div>
+  </div>
+
+  <!-- 🎶 MUSIC PLAYER BUTTON (Play/Pause) -->
+  <!-- 🎵 PLACE YOUR AUDIO FILE BELOW in the "src" attribute -->
+  <audio id="birthday-audio" loop>
+    <source src="your_audio_file.mp3" type="audio/mp3"> <!-- 🔊 ADD YOUR AUDIO FILE NAME HERE -->
+  </audio>
+  <button id="music-btn">▶️</button>
+
+  <script>
+    function showMain() {
+      document.getElementById('intro').style.display = 'none';
+      document.getElementById('main-content').style.display = 'block';
+      startRoseRain();
+    }
+
+    function swapButtonsAndShowAngry() {
+      const yesBtn = document.getElementById('yesBtn');
+      const noBtn = document.getElementById('noBtn');
+      const parent = document.getElementById('choiceBox');
+      if (yesBtn && noBtn && parent) parent.insertBefore(noBtn, yesBtn);
+      document.getElementById('emojiContainer').style.display = 'block';
+    }
+
+    function startRoseRain() {
+      const roseContainer = document.getElementById('rose-container');
+      const rainInterval = setInterval(() => {
+        const rose = document.createElement('div');
+        rose.classList.add('rose');
+        rose.style.left = Math.random() * window.innerWidth + 'px';
+        roseContainer.appendChild(rose);
+        setTimeout(() => { rose.remove(); }, 5000);
+      }, 300);
+      setTimeout(() => clearInterval(rainInterval), 10000);
+    }
+
+    // 🎶 MUSIC TOGGLE FUNCTION
+    const musicBtn = document.getElementById("music-btn");
+    const audio = document.getElementById("birthday-audio");
+    musicBtn.addEventListener("click", () => {
+      if (audio.paused) {
+        audio.play();
+        musicBtn.textContent = "⏸️";
+      } else {
+        audio.pause();
+        musicBtn.textContent = "▶️";
+      }
+    });
+
+    // ✨ Stars
+    setInterval(() => {
+      const star = document.createElement("div");
+      star.classList.add("star");
+      star.style.left = Math.random() * 100 + "vw";
+      star.style.top = Math.random() * 100 + "vh";
+      document.body.appendChild(star);
+      setTimeout(() => star.remove(), 3000);
+    }, 200);
+
+    // 🎈 Balloons
+    setInterval(() => {
+      const balloon = document.createElement("div");
+      balloon.classList.add("balloon");
+      balloon.innerHTML = ["🎈","🎉","🎊"][Math.floor(Math.random() * 3)];
+      balloon.style.left = Math.random() * 90 + "vw";
+      balloon.style.animationDuration = Math.random() * 5 + 8 + "s";
+      document.body.appendChild(balloon);
+      setTimeout(() => balloon.remove(), 10000);
+    }, 4000);
+
+    // 💥 Click heart explosions
+    document.addEventListener("click", (e) => {
+      for (let i = 0; i < 8; i++) {
+        const boom = document.createElement("div");
+        boom.classList.add("boom-heart");
+        boom.innerHTML = "💖";
+        const angle = Math.random() * 2 * Math.PI;
+        const distance = Math.random() * 80 + 30;
+        const x = Math.cos(angle) * distance + "px";
+        const y = Math.sin(angle) * distance + "px";
+        boom.style.setProperty("--x", x);
+        boom.style.setProperty("--y", y);
+        boom.style.left = e.clientX + "px";
+        boom.style.top = e.clientY + "px";
+        document.body.appendChild(boom);
+        setTimeout(() => boom.remove(), 1000);
+      }
+    });
+  </script>
+
+  <!-- 🌹 Container for falling roses -->
+  <div id="rose-container"></div>
+  <audio id="birthday-audio" controls loop>
+    <source src="sundaymains.wav" type="audio/wav">
+</audio>
+
+</body>
+</html>
